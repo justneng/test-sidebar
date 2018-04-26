@@ -1,0 +1,150 @@
+.container-fluid {
+  margin-left: 300px;
+  transition: margin-left 0.2s ease-in-out;
+
+  background: none;
+}
+
+main, .container-fluid {
+  min-height: 94vh;
+}
+
+#hamburger-open {
+  display: none;
+}
+
+#hamburger-open, #hamburger-close {
+  background-color: #041D2D;
+  padding: 7px;
+  box-shadow: inset 0 0 7px #000000;
+  border-radius: 3px;
+}
+
+.wrapper {
+  display: flex;
+  /*ทำให้เวลา ยืด หด หน้าจอ จะทำให้ความสูงของ sidebar & content ยืดหด ได้อัตโนมัต*/
+  align-items: stretch;
+}
+
+#nav-header-band {
+  min-width: 300px;
+  max-width: 300px;
+  transition: margin-left 0.2s ease-in-out;
+}
+
+#sidebar {
+  min-width: 300px;
+  max-width: 300px;
+  min-height: 94vh;
+
+  background-color: #f8f9fa;
+  color: #163143;
+  transition: margin-left 0.2s ease-in-out;
+  border-right: 1px solid #e2e3e5;
+  position: fixed;
+  z-index: 2000 !important;
+}
+
+#sidebar.active, #nav-header-band.active {
+  margin-left: -300px;
+}
+
+#nav-header {
+  padding: 5px 20px 5px 20px;
+  background-color: #163143;
+  color: white;
+  min-height: 6vh;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+}
+
+.navbar-brand span:nth-child(1) {
+  display: block;
+  float: left;
+  width: 30%;
+}
+
+.navbar-brand span:nth-child(2) {
+  display: block;
+  float: left;
+  font-size: 0.8em;
+  width: 60%;
+}
+
+#nav-header-band {
+  width: 280px;
+}
+
+#hamburger {
+  font-size: 16px;
+}
+
+a, a:hover, a:focus {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+a[data-toggle="collapse"] {
+  position: relative;
+}
+
+a[aria-expanded="false"]::after, a[aria-expanded="true"]::after {
+  content: '\f104';
+  /*display: block;*/
+  position: absolute;
+  /*right: 20px;*/
+  right: 10px;
+  font-family: FontAwesome;
+  font-weight: bold;
+  font-size: 0.8em;
+  padding-left: 3px;
+}
+
+a[aria-expanded="true"]::after {
+  content: '\f107';
+  font-weight: bold;
+}
+
+#sidebar ul li a {
+  padding: 10px 10px 10px 15px;
+  font-size: 0.9em;
+  display: block;
+}
+
+#sidebar ul li a:hover {
+  color: #163143;
+  background: #E9E7D5;
+}
+
+#sidebar ul li.active > a, a[aria-expanded="true"] {
+  color: #163143;
+  background: #E9E7D5;
+  border-left: 3px solid #D4273E;
+  font-weight: bolder;
+}
+
+ul ul a {
+  font-size: 0.8em !important;
+  padding-left: 30px !important;
+  background: #f3f3f2;
+  overflow-wrap: break-word;
+}
+
+/*เมื่อหน้าจอย่อขนาดลงมาที่ width = 768px (Medium devices) ทำให้ sidebar หายไป (จริงๆ มัน margin ออกไป 300px)*/
+@media (max-width: 992px) {
+  #sidebar, #nav-header-band {
+    margin-left: -300px;
+  }
+
+  #sidebar.active, #sidebar.active {
+    margin-left: 0;
+  }
+
+  .container-fluid, .container {
+    margin-left: 0 !important;
+  }
+}
